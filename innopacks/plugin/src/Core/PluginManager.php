@@ -170,8 +170,7 @@ class PluginManager
      */
     protected function getPluginsDir(): string
     {
-       // return config('plugins.directory') ?: base_path('plugins');
-       return 'C:\innoshop\innopacks\plugin';
+       return config('plugins.directory') ?: base_path('plugins');
     }
 
     /**
