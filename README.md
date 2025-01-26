@@ -1,4 +1,0 @@
-# DesarrolloSoftware
-
-
-vamooos equipo
