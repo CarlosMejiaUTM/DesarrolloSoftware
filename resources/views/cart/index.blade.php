@@ -1,12 +1,17 @@
 <!-- resources/views/cart/index.blade.php -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carrito de Compras</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
     <style>
         body {
             background: linear-gradient(135deg, #ffccff, #ccffff);
@@ -15,7 +20,8 @@
             padding: 0;
         }
 
-        h1, h2 {
+        h1,
+        h2 {
             text-shadow: 2px 2px 5px #000000;
         }
 
@@ -101,10 +107,8 @@
             margin-top: 20px;
         }
     </style>
-</head>
-<body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
             <a class="navbar-brand text-glow" href="#">MiTienda</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -127,37 +131,56 @@
                 </ul>
             </div>
         </div>
-    </nav>
+    </nav> -->
+    <header id="main-navbar">
+        <main-nav-bar></main-nav-bar>
+    </header>
 
-    <div class="container py-5">
-        <h1 class="text-glow">Carrito de Compras</h1>
+    <main style="height:100%">
+        <div class="container py-5">
+            <h1 class="text-glow">Carrito de Compras</h1>
 
-        @if(session('success'))
+            @if(session('success'))
             <div class="alert alert-success">
                 {{ session('success') }}
             </div>
-        @endif
+            @endif
 
-        @if(count($cartItems) > 0)
+            @if(count($cartItems) > 0)
             @foreach($cartItems as $id => $item)
-                <div class="cart-item">
-                    <img src="{{ $item['image'] }}" alt="{{ $item['name'] }}">
-                    <div class="cart-item-details">
-                        <h5>{{ $item['name'] }}</h5>
-                        <div class="cart-item-price">${{ $item['price'] }}</div>
-                    </div>
-                    <div class="cart-item-quantity">
-                        <input type="number" value="{{ $item['quantity'] }}" min="1">
-                    </div>
+            <div class="cart-item">
+                <img src="{{ $item['image'] }}" alt="{{ $item['name'] }}">
+                <div class="cart-item-details">
+                    <h5>{{ $item['name'] }}</h5>
+                    <div class="cart-item-price">${{ $item['price'] }}</div>
                 </div>
+                <div class="cart-item-quantity">
+                    <input type="number" value="{{ $item['quantity'] }}" min="1">
+                </div>
+            </div>
             @endforeach
 
             <div class="cart-total">
                 Total: ${{ array_sum(array_column($cartItems, 'price')) }}
             </div>
-        @else
+            @else
             <p>No hay productos en el carrito.</p>
-        @endif
-    </div>
+            @endif
+        </div>
+
+    </main>
+
+
+
+    <footer id="footer-content">
+        <footer-content></footer-content>
+    </footer>
+
+
+    @vite('resources/js/app.js')
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
+
 </html>
