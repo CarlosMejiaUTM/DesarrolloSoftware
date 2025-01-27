@@ -19,6 +19,5 @@
     </footer>
 
     @vite('resources/js/app.js')
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 </body>
 </html>

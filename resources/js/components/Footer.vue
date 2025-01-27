@@ -1,7 +1,7 @@
 <template>
     <footer class="footer">
         <div class="container">
-            <p class="footer-text">© 2023 Y2K Style Footer. All rights reserved.</p>
+            <p class="footer-text">© 2023 Y2K Style. All rights reserved.</p>
         </div>
     </footer>
 </template>

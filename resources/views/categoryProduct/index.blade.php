@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -103,7 +102,6 @@
             /* Se ajusta al ancho del contenedor */
         }
     </style>
-        @vite('resources/js/app.js')
 
 </head>
 
@@ -111,7 +109,7 @@
     <header id="main-navbar">
         <main-nav-bar></main-nav-bar>
     </header>
-    <div class="container py-5">
+    <div class="container py-5 w-50">
         <!-- Banner sobre la tendencia Y2K -->
         <div class="y2k-banner">
             <h2 class="text-glow">Explora la tendencia Y2K</h2>
@@ -142,10 +140,12 @@
                 @endforeach
             </div>
         </div>
-        <footer id="footer-content">
-            <footer-content></footer-content>
-        </footer>
+    </div>
 
+    <footer id="footer-content">
+        <footer-content></footer-content>
+    </footer>
+
+    @vite('resources/js/app.js')
 </body>
-
 </html>

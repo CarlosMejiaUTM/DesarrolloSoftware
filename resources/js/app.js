@@ -2,6 +2,7 @@ import './bootstrap';
 import { createApp } from 'vue';
 import MainNavBar from './components/MainNavBar.vue';
 import Footer from './components/Footer.vue';
+import '../css/main.css';
 
 const navbarApp = createApp({});
 navbarApp.component('main-nav-bar', MainNavBar);

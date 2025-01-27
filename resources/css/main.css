@@ -1,0 +1,40 @@
+:root {
+    --deep-color: #87CEEB;
+    --secondary-color: #ffcc00;
+    --hover-color: #ff00ff;
+    --brat: #89CC04;
+    --deep-blue: rgb(0, 35, 139);
+    --yellow: #FFD700;
+    --primary-font: 'Trebuchet MS', sans-serif;
+    --secondary-font: 'Tahoma', sans-serif;
+}
+
+.primary-color {
+    color: var(--primary-color);
+}
+
+.secondary-color {
+    color: var(--secondary-color);
+}
+
+.background-primary {
+    background-color: var(--primary-color);
+}
+
+.background-secondary {
+    background-color: var(--secondary-color);
+}
+
+/* button {
+    background: linear-gradient(to bottom, #e0e0e0, #c0c0c0);
+    border: 2px solid #808080;
+    padding: 5px 10px;
+    font-family: 'Tahoma', sans-serif;
+    border-radius: 5px;
+    box-shadow: 2px 2px 4px #808080;
+    cursor: pointer;
+}
+
+button:hover {
+    background: linear-gradient(to bottom, #f0f0f0, #d0d0d0);
+} */
