@@ -19,7 +19,7 @@
         }
 
         .text-glow {
-            color:rgb(66, 45, 66);
+            color: rgb(66, 45, 66);
             text-shadow: 0 0 10px #ff66ff, 0 0 20px #ff99ff;
         }
 
@@ -103,9 +103,14 @@
             /* Se ajusta al ancho del contenedor */
         }
     </style>
+        @vite('resources/js/app.js')
+
 </head>
 
 <body>
+    <header id="main-navbar">
+        <main-nav-bar></main-nav-bar>
+    </header>
     <div class="container py-5">
         <!-- Banner sobre la tendencia Y2K -->
         <div class="y2k-banner">
@@ -120,7 +125,8 @@
                 @foreach ($categories as $category)
                 <div class="col-12 col-sm-6 col-lg-3 mb-4">
                     <!-- Hacemos el contenedor clicable -->
-                    <a href="{{ $category['url'] ?? '#' }}" class="text-decoration-none">
+                    <a href="{{ route('products.showProductsByCategory', ['categoria' => $category['nombre']]) }}" class="text-decoration-none">
+                        {{ $category['nombre'] }}
                         <div class="card product-card position-relative">
                             <img src="{{ $category['imagen'] }}" class="card-img-top" alt="{{ $category['nombre'] }}">
                             <div class="card-body text-center">
@@ -136,6 +142,10 @@
                 @endforeach
             </div>
         </div>
+        <footer id="footer-content">
+            <footer-content></footer-content>
+        </footer>
+
 </body>
 
 </html>
