@@ -1,8 +1,9 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\CartController;
+use App\Http\Controllers\CategoryProduct;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CartController;
+use Illuminate\Support\Facades\Route;
 
 Route::get('/products', [ProductController::class, 'index'])->name('products.index');
 Route::get('/products/{id}', [ProductController::class, 'show'])->name('products.show');
@@ -12,3 +13,7 @@ Route::post('/cart/add/{id}', [CartController::class, 'add'])->name('cart.add');
 Route::get('/', function () {
     return view('welcome');
 });
+
+//PRODUCTS CATEGORIES
+Route::get('/categories', [CategoryProduct::class, 'index'])->name('categoryProduct.index');
+
