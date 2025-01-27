@@ -11,16 +11,21 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = [
-            ['id' => 1, 'name' => 'Producto 1', 'price' => 299.99, 'image' => 'https://www.lavanguardia.com/uploads/2018/12/12/5fa450a262fdd.jpeg'],
-            ['id' => 2, 'name' => 'Producto 2', 'price' => 199.99, 'image' => 'https://www.lavanguardia.com/uploads/2018/12/12/5fa450a262fdd.jpeg'],
-            ['id' => 3, 'name' => 'Producto 3', 'price' => 149.99, 'image' => 'https://www.lavanguardia.com/uploads/2018/12/12/5fa450a262fdd.jpeg'],
-            ['id' => 4, 'name' => 'Producto 4', 'price' => 399.99, 'image' => 'https://www.lavanguardia.com/uploads/2018/12/12/5fa450a262fdd.jpeg'],
-        ];
+       $products = $this->getProductos();
 
         return view('products.index', compact('products'));
     }
 
+    private function getProductos(){
+        
+        $products = [
+            ['id' => 1, 'name' => 'Producto 1', 'price' => 299.99, 'image' => 'https://www.lavanguardia.com/uploads/2018/12/12/5fa450a262fdd.jpeg', 'category' => 'Auriculares'],
+            ['id' => 2, 'name' => 'Producto 2', 'price' => 199.99, 'image' => 'https://www.lavanguardia.com/uploads/2018/12/12/5fa450a262fdd.jpeg', 'category' => 'Camaras'],
+            ['id' => 3, 'name' => 'Producto 3', 'price' => 149.99, 'image' => 'https://www.lavanguardia.com/uploads/2018/12/12/5fa450a262fdd.jpeg', 'category' => 'Celulares'],
+            ['id' => 4, 'name' => 'Producto 4', 'price' => 399.99, 'image' => 'https://www.lavanguardia.com/uploads/2018/12/12/5fa450a262fdd.jpeg', 'category' => 'Laptops'],
+        ];
+        return $products;
+    }
     /**
      * Muestra el detalle de un producto específico.
      */
@@ -48,5 +53,27 @@ class ProductController extends Controller
         ];
 
         return view('products.show', compact('product', 'relatedProducts'));
+    }
+
+    //CARGAR VISTA DE PRODUCTOS por categoria
+    public function showProductsByCategory($categoria)
+    {
+        // Ejemplo: datos simulados como arreglos
+        // Filtrar productos por la categoría proporcionada
+        $productosFiltrados = $this->FilterByCategoryName($categoria);
+        // Pasar los productos filtrados a la vista
+        return view('products.index', ['products' => $productosFiltrados]);
+    }
+
+    //Metodo para filtrar por categoria los productos
+    private function FilterByCategoryName($categoryName){
+        $productos = $this->getProductos();
+
+        $productosFiltrados = array_filter($productos, function ($producto) use ($categoryName) {
+            return $producto['category'] === $categoryName;
+        });
+
+        return $productosFiltrados;
+
     }
 }
