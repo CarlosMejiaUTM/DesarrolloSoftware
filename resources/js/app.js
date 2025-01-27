@@ -1,8 +1,14 @@
 import './bootstrap';
 import { createApp } from 'vue';
-import MyComponent from './components/MyComponent.vue';
+import MainNavBar from './components/MainNavBar.vue';
+import Footer from './components/Footer.vue';
 
-const app = createApp({});
-app.component('my-component', MyComponent);
+const navbarApp = createApp({});
+navbarApp.component('main-nav-bar', MainNavBar);
 
-app.mount('#app');
+navbarApp.mount('#main-navbar');
+
+const footerApp = createApp({});
+footerApp.component('footer-content', Footer);
+
+footerApp.mount('#footer-content');

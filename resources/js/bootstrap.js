@@ -4,3 +4,9 @@ window.axios = axios;
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 import 'bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import '@popperjs/core';
+
+// resources/js/bootstrap.js
+import $ from 'jquery';
+window.$ = window.jQuery = $;
