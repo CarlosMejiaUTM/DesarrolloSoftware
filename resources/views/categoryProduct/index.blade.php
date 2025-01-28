@@ -6,6 +6,7 @@
     <title>Productos</title>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     @vite('resources/js/app.js')
+    @vite('resources/css/main.css')
 </head>
 
 <body>

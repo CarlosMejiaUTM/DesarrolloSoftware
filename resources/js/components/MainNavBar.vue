@@ -1,8 +1,8 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand ms-2 bg-primary" href="#">
-      <!-- <img src="logo.png" alt="Logo" style="width: 50px;"> -->
-      Y2K Style
+    <a class="navbar-brand d-flex flex-column justify-content-center ms-2 bg-brat p-2 px-3" href="/">
+      <img src="/public/images/logo.webp" alt="Logo" style="width: 50px;">
+      <span>Style</span>
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
