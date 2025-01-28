@@ -64,7 +64,7 @@
         <main-nav-bar></main-nav-bar>
     </header>
 
-    <main style="height:100%">
+    <main>
         <div class="container py-5">
             <h1 class="text-center text-glow">Catálogo de Productos</h1>
             <div class="row">

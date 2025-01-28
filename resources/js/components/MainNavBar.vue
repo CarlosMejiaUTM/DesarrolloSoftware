@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-light profundity p-3">
+  <nav class="navbar navbar-expand-lg navbar-light profundity bg-secondary p-3">
     <a class="navbar-brand d-flex flex-column justify-content-center ms-2 bg-brat p-2 px-3" href="/">
       <img src="/public/images/logo.webp" alt="Logo" style="width: 50px;">
       <span>Style</span>

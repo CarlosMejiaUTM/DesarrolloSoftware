@@ -59,6 +59,23 @@
     background-color: var(--blue-light);
 }
 
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+}
+
 button {
     background: linear-gradient(to bottom, #e0e0e0, #c0c0c0);
     border: 2px solid #808080;
