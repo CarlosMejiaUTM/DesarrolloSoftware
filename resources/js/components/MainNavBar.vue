@@ -1,8 +1,8 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand ms-2 bg-primary" href="#">
-      <!-- <img src="logo.png" alt="Logo" style="width: 50px;"> -->
-      Y2K Style
+    <a class="navbar-brand d-flex flex-column justify-content-center ms-2 bg-brat p-2 px-3" href="/">
+      <img src="/public/images/logo.webp" alt="Logo" style="width: 50px;">
+      <span>Style</span>
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -32,9 +32,9 @@
           <a class="nav-link" href="#">Contacto</a>
         </li>
       </ul>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar">
-        <button class="btn btn-outline-success" type="submit">Buscar</button>
+      <form class="d-flex" @submit.prevent="searchProducts">
+        <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Buscar" v-model="searchQuery">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
       </form>
     </div>
   </nav>
@@ -60,7 +60,6 @@ export default {
   }
 };
 </script>
-
 <style scoped>
 .navbar {
   font-family: 'Comic Sans MS', cursive, sans-serif;

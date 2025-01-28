@@ -20,10 +20,10 @@ class ProductController extends Controller
     {
 
         $products = [
-            ['id' => 1, 'name' => 'Producto 1', 'price' => 299.99, 'image' => 'https://www.lavanguardia.com/uploads/2018/12/12/5fa450a262fdd.jpeg', 'category' => 'Auriculares'],
-            ['id' => 2, 'name' => 'Producto 2', 'price' => 199.99, 'image' => 'https://www.lavanguardia.com/uploads/2018/12/12/5fa450a262fdd.jpeg', 'category' => 'Camaras'],
-            ['id' => 3, 'name' => 'Producto 3', 'price' => 149.99, 'image' => 'https://www.lavanguardia.com/uploads/2018/12/12/5fa450a262fdd.jpeg', 'category' => 'Celulares'],
-            ['id' => 4, 'name' => 'Producto 4', 'price' => 399.99, 'image' => 'https://www.lavanguardia.com/uploads/2018/12/12/5fa450a262fdd.jpeg', 'category' => 'Laptops'],
+            ['id' => 1, 'name' => 'Auriculares Sony', 'price' => 299.99, 'image' => 'https://www.lavanguardia.com/uploads/2018/12/12/5fa450a262fdd.jpeg', 'category' => 'Auriculares'],
+            ['id' => 2, 'name' => 'Camara Hp', 'price' => 199.99, 'image' => 'https://www.lavanguardia.com/uploads/2018/12/12/5fa450a262fdd.jpeg', 'category' => 'Camaras'],
+            ['id' => 3, 'name' => 'Sony Ericson', 'price' => 149.99, 'image' => 'https://www.lavanguardia.com/uploads/2018/12/12/5fa450a262fdd.jpeg', 'category' => 'Celulares'],
+            ['id' => 4, 'name' => 'Laptop', 'price' => 399.99, 'image' => 'https://www.lavanguardia.com/uploads/2018/12/12/5fa450a262fdd.jpeg', 'category' => 'Laptops'],
         ];
         return $products;
     }
@@ -82,7 +82,6 @@ class ProductController extends Controller
     {
         $query = $request->input('query');
         $products = $this->getProductos();
-
         $filteredProducts = array_filter($products, function ($product) use ($query) {
             return stripos($product['name'], $query) !== false;
         });

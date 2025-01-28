@@ -1,5 +1,5 @@
 :root {
-    --deep-color: #87CEEB;
+    --light-color: #87CEEB;
     --secondary-color: #ffcc00;
     --hover-color: #ff00ff;
     --brat: #89CC04;
@@ -23,6 +23,10 @@
 
 .background-secondary {
     background-color: var(--secondary-color);
+}
+
+.bg-brat {
+    background-color: var(--brat);
 }
 
 /* button {
