@@ -29,5 +29,7 @@ Route::get('/address', [AddressController::class, 'getAddress']);
 
 
 
+
+
 //PRODUCTS CATEGORIES
 Route::get('/categories', [CategoryProduct::class, 'index'])->name('categoryProduct.index');
