@@ -107,7 +107,7 @@
         }
     </style>
     <header id="main-navbar">
-        <main-nav-bar></main-nav-bar>
+        <main-nav-bar logo-url="{{ asset('images/logo.webp') }}"></main-nav-bar>
     </header>
 
     <main style="height:100%">

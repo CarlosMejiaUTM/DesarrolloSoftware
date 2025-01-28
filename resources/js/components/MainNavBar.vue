@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-light profundity bg-secondary p-3">
     <a class="navbar-brand d-flex flex-column justify-content-center ms-2 bg-brat p-2 px-3" href="/">
-      <img src="/public/images/logo.webp" alt="Logo" style="width: 50px;">
+      <img :src="logoUrl" alt="Logo" style="width: 50px;">
       <span>Style</span>
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -42,6 +42,12 @@
 
 <script>
 export default {
+  props: {
+    logoUrl: {
+      type: String,
+      required: true
+    }
+  },
   name: 'MainNavBar',
   data() {
     return {
