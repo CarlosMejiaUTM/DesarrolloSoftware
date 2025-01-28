@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg navbar-light profundity p-3">
     <a class="navbar-brand d-flex flex-column justify-content-center ms-2 bg-brat p-2 px-3" href="/">
       <img src="/public/images/logo.webp" alt="Logo" style="width: 50px;">
       <span>Style</span>
@@ -11,7 +11,7 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link" href="#">Categorias</a>
+          <a class="nav-link" href="/categories">Categorias</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Servicios</a>
@@ -32,9 +32,9 @@
           <a class="nav-link" href="#">Contacto</a>
         </li>
       </ul>
-      <form class="d-flex" @submit.prevent="searchProducts">
-        <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Buscar" v-model="searchQuery">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+      <form class="d-flex" @submit.prevent="searchProducts" >
+        <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar" v-model="searchQuery">
+        <button class="btn btn-outline-success" type="submit">Buscar</button>
       </form>
     </div>
   </nav>
@@ -48,22 +48,17 @@ export default {
       message: '¡Este es un mensaje desde Vue!',
     };
   },
-  data(){
-    return{
-      searchQuery: ''
-    };
-  },
-  methods:{
+  methods: {
     searchProducts() {
       window.location.href = `/products/search?query=${this.searchQuery}`;
     }
   }
 };
 </script>
+
 <style scoped>
 .navbar {
   font-family: 'Comic Sans MS', cursive, sans-serif;
-  background-color: #ffcc00;
 }
 
 .nav-link {

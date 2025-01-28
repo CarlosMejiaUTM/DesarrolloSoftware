@@ -44,14 +44,14 @@ class CategoryProduct extends Controller
             'id' => 4,
             'nombre' => 'Laptops',
             'productos' => [110, 111, 112],
-            'imagen' => 'https://cdn.mos.cms.futurecdn.net/9b8e8b8e8e8e8e8e8e8e8e8e8e8e8e8e-1200-80.jpg',
+            'imagen' => 'https://i.pinimg.com/736x/f2/58/48/f2584870ee6a14009238990317bcb917.jpg',
             'descripcion' => 'Sin descripcion'
             ],
             [
             'id' => 5,
-            'nombre' => 'Tablets',
+            'nombre' => 'Walkmans',
             'productos' => [113, 114, 115],
-            'imagen' => 'https://cdn.mos.cms.futurecdn.net/8e8e8e8e8e8e8e8e8e8e8e8e8e8e8e8e-1200-80.jpg',
+            'imagen' => 'https://i.pinimg.com/736x/39/d7/72/39d772db5cd10e6e0a4f96cdc3397790.jpg',
              'descripcion' => 'Sin descripcion'
             ]
         ];
