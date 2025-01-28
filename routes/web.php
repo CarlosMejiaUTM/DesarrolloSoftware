@@ -12,9 +12,9 @@ Route::get('/products', [ProductController::class, 'index'])->name('products.ind
 Route::get('/products/{id}', [ProductController::class, 'show'])->name('products.show');
 Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
 Route::post('/cart/add/{id}', [CartController::class, 'add'])->name('cart.add');
-
-
 Route::get('/producto/{categoria}', [ProductController::class, 'showProductsByCategory'])->name('products.showProductsByCategory');
+Route::get('/products/search', [ProductController::class, 'search'])->name('products.search');
+
 
 //PRODUCTS CATEGORIES
 Route::get('/categories', [CategoryProduct::class, 'index'])->name('categoryProduct.index');

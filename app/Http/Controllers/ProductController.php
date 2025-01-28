@@ -11,13 +11,14 @@ class ProductController extends Controller
      */
     public function index()
     {
-       $products = $this->getProductos();
+        $products = $this->getProductos();
 
         return view('products.index', compact('products'));
     }
 
-    private function getProductos(){
-        
+    private function getProductos()
+    {
+
         $products = [
             ['id' => 1, 'name' => 'Producto 1', 'price' => 299.99, 'image' => 'https://www.lavanguardia.com/uploads/2018/12/12/5fa450a262fdd.jpeg', 'category' => 'Auriculares'],
             ['id' => 2, 'name' => 'Producto 2', 'price' => 199.99, 'image' => 'https://www.lavanguardia.com/uploads/2018/12/12/5fa450a262fdd.jpeg', 'category' => 'Camaras'],
@@ -66,7 +67,8 @@ class ProductController extends Controller
     }
 
     //Metodo para filtrar por categoria los productos
-    private function FilterByCategoryName($categoryName){
+    private function FilterByCategoryName($categoryName)
+    {
         $productos = $this->getProductos();
 
         $productosFiltrados = array_filter($productos, function ($producto) use ($categoryName) {
@@ -74,6 +76,17 @@ class ProductController extends Controller
         });
 
         return $productosFiltrados;
+    }
 
+    public function search(Request $request)
+    {
+        $query = $request->input('query');
+        $products = $this->getProductos();
+
+        $filteredProducts = array_filter($products, function ($product) use ($query) {
+            return stripos($product['name'], $query) !== false;
+        });
+
+        return view('products.index', ['products' => $filteredProducts]);
     }
 }

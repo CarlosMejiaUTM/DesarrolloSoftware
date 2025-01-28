@@ -48,6 +48,16 @@ export default {
       message: '¡Este es un mensaje desde Vue!',
     };
   },
+  data(){
+    return{
+      searchQuery: ''
+    };
+  },
+  methods:{
+    searchProducts() {
+      window.location.href = `/products/search?query=${this.searchQuery}`;
+    }
+  }
 };
 </script>
 
