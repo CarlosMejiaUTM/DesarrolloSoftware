@@ -64,7 +64,7 @@ export default {
 
 <style scoped>
 .navbar {
-  font-family: 'Comic Sans MS', cursive, sans-serif;
+  font-family: var(--comic-font);
 }
 
 .nav-link {

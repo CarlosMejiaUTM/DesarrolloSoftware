@@ -7,15 +7,10 @@
     <title>Productos</title>
     @vite('resources/js/app.js')
     @vite('resources/css/main.css')
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <style>
-        body {
-            background: linear-gradient(135deg, #ffccff, #ccffff);
-            font-family: 'Press Start 2P', cursive;
-        }
 
         h1,
         h2 {

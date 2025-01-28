@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Productos</title>
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    {{-- <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet"> --}}
     @vite('resources/js/app.js')
     @vite('resources/css/main.css')
 </head>
@@ -13,7 +13,7 @@
     <style>
         body {
             background: linear-gradient(135deg, #ffccff, #ccffff);
-            font-family: 'Press Start 2P', cursive;
+            /* font-family: 'Press Start 2P', cursive; */
         }
 
         h1,
