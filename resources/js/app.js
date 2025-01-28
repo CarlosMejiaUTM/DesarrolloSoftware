@@ -12,6 +12,7 @@ window.$ = window.jQuery = $;
 import { createApp } from 'vue';
 import MainNavBar from './components/MainNavBar.vue';
 import Footer from './components/Footer.vue';
+import BreadCrumb from './components/BreadCrumb.vue';
 
 const navbarApp = createApp({});
 navbarApp.component('main-nav-bar', MainNavBar);
@@ -22,3 +23,8 @@ const footerApp = createApp({});
 footerApp.component('footer-content', Footer);
 
 footerApp.mount('#footer-content');
+
+const breadcrumbApp = createApp({});
+breadcrumbApp.component('bread-crumb', BreadCrumb);
+
+breadcrumbApp.mount('#bread-crumb');

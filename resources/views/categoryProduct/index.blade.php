@@ -4,16 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Productos</title>
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    {{-- <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet"> --}}
     @vite('resources/js/app.js')
+    @vite('resources/css/main.css')
 </head>
 
 <body>
     <style>
-        body {
-            background: linear-gradient(135deg, #ffccff, #ccffff);
-            font-family: 'Press Start 2P', cursive;
-        }
 
         h1,
         h2 {
@@ -106,10 +103,13 @@
         }
     </style>
     <header id="main-navbar">
-        <main-nav-bar></main-nav-bar>
+        <main-nav-bar logo-url="{{ asset('images/logo.webp') }}"></main-nav-bar>
     </header>
 
-    <main style="height:100%">
+    <main>
+        <div id="bread-crumb">
+            <bread-crumb></bread-crumb>
+        </div>
         <div class="container py-5">
             <!-- Banner sobre la tendencia Y2K -->
             <div class="y2k-banner">

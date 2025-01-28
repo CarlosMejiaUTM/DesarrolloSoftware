@@ -5,17 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Productos</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-
+    @vite('resources/js/app.js')
+    @vite('resources/css/main.css')
 </head>
 
 <body>
     <style>
-        body {
-            background: linear-gradient(135deg, #ffccff, #ccffff);
-            font-family: 'Press Start 2P', cursive;
-        }
 
         h1,
         h2 {
@@ -32,6 +27,10 @@
             border: 2px solid #ff66ff;
             box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
             transition: transform 0.3s;
+            height: 400px; /* Set a fixed height */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .product-card:hover {
@@ -57,17 +56,20 @@
         }
     </style>
     <header id="main-navbar">
-        <main-nav-bar></main-nav-bar>
+        <main-nav-bar logo-url="{{ asset('images/logo.webp') }}"></main-nav-bar>
     </header>
 
-    <main style="height:100%">
+    <main>
+        <div id="bread-crumb">
+            <bread-crumb></bread-crumb>
+        </div>
         <div class="container py-5">
             <h1 class="text-center text-glow">Catálogo de Productos</h1>
             <div class="row">
                 @foreach ($products as $product)
-                <div class="col-md-3">
+                <div class="col-12 col-sm-6 col-lg-3 mb-4">
                     <div class="card product-card">
-                        <img src="{{ $product['image'] }}" class="card-img-top" alt="{{ $product['name'] }}">
+                        <img src="{{ $product['image'] }}" class="card-img-top" alt="{{ $product['name'] }}" style="width: 100%; height: 200px; object-fit: cover;">
                         <div class="card-body text-center">
                             <h5 class="card-title">{{ $product['name'] }}</h5>
                             <p class="price-text">${{ $product['price'] }}</p>
@@ -79,16 +81,9 @@
             </div>
         </div>
     </main>
-
-    
-
     <footer id="footer-content">
         <footer-content></footer-content>
     </footer>
-    @vite('resources/js/app.js')
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 
 </html>
