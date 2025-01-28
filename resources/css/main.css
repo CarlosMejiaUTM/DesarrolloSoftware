@@ -1,10 +1,12 @@
 :root {
-    --light-color: #87CEEB;
-    --secondary-color: #ffcc00;
-    --hover-color: #ff00ff;
     --brat: #89CC04;
-    --deep-blue: rgb(0, 35, 139);
     --yellow: #FFD700;
+    --pink: #ff1493;
+    --pink-light: #ff00ff;
+    --purple: #8a2be2;
+    --blue-deep: rgb(0, 35, 139);
+    --blue: #1493ff;
+    --blue-light: #87CEEB;
     --primary-font: 'Trebuchet MS', sans-serif;
     --secondary-font: 'Tahoma', sans-serif;
 }
@@ -29,7 +31,35 @@
     background-color: var(--brat);
 }
 
-/* button {
+.bg-yellow {
+    background-color: var(--yellow);
+}
+
+.bg-pink {
+    background-color: var(--pink);
+}
+
+.bg-pink-light {
+    background-color: var(--pink-light);
+}
+
+.bg-purple {
+    background-color: var(--purple);
+}
+
+.bg-blue-deep {
+    background-color: var(--blue-deep);
+}
+
+.bg-blue {
+    background-color: var(--blue);
+}
+
+.bg-blue-light {
+    background-color: var(--blue-light);
+}
+
+button {
     background: linear-gradient(to bottom, #e0e0e0, #c0c0c0);
     border: 2px solid #808080;
     padding: 5px 10px;
@@ -41,4 +71,10 @@
 
 button:hover {
     background: linear-gradient(to bottom, #f0f0f0, #d0d0d0);
-} */
+}
+
+.profundity {
+    border-bottom: 3px solid black;
+    border-right: 3px solid black;
+    box-shadow: 0px 4px 8px gray;
+}
