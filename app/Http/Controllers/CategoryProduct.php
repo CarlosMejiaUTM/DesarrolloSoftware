@@ -10,7 +10,14 @@ class CategoryProduct extends Controller
     public function index()
     {
         $categories =  $this->getCategoryProducts();
-        return view('categoryProduct.index', compact('categories'));
+        $breadcrumbItems = [
+            ['text' => 'Home', 'href' => '/'],
+            ['text' => 'Categories', 'href' => '/categories'],
+            ['text' => 'Products', 'Products' => '/products']
+            // ['text' => 'Products', 'Products' => '/products'],
+
+        ];
+        return view('categoryProduct.index', compact('categories', 'breadcrumbItems'));
     }
 
     //LLAMAR LAS CATEGORIAS

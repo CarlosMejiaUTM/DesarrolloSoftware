@@ -2,7 +2,7 @@
   <nav class="navbar navbar-expand-lg navbar-light profundity bg-secondary p-3">
     <a class="navbar-brand d-flex flex-column justify-content-center ms-2 bg-brat p-2 px-3" href="/">
       <img :src="logoUrl" alt="Logo" style="width: 50px;">
-      <span>Style</span>
+      <span class="text-center">Style</span>
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">

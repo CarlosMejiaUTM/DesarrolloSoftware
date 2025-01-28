@@ -60,6 +60,9 @@
     </header>
 
     <main>
+        <div id="bread-crumb">
+            <bread-crumb></bread-crumb>
+        </div>
         <div class="container py-5">
             <h1 class="text-center text-glow">Catálogo de Productos</h1>
             <div class="row">

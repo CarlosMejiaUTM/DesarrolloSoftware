@@ -154,6 +154,9 @@
 
 
     <main>
+        <div id="bread-crumb">
+            <bread-crumb></bread-crumb>
+        </div>
         <div class="container py-5">
             <!-- Botón Volver -->
             <a href="{{ route('products.index') }}" class="btn btn-custom mb-4">⬅ Volver a la Lista</a>

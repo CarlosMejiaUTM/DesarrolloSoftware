@@ -11,10 +11,6 @@
 
 <body>
     <style>
-        body {
-            background: linear-gradient(135deg, #ffccff, #ccffff);
-            /* font-family: 'Press Start 2P', cursive; */
-        }
 
         h1,
         h2 {
@@ -110,7 +106,10 @@
         <main-nav-bar logo-url="{{ asset('images/logo.webp') }}"></main-nav-bar>
     </header>
 
-    <main style="height:100%">
+    <main>
+        <div id="bread-crumb">
+            <bread-crumb></bread-crumb>
+        </div>
         <div class="container py-5">
             <!-- Banner sobre la tendencia Y2K -->
             <div class="y2k-banner">

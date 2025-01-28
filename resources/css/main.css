@@ -42,7 +42,7 @@
 }
 
 .bg-pink {
-    background-color: var(--pink);
+    background-color: var(--pink) !important;
 }
 
 .bg-pink-light {
