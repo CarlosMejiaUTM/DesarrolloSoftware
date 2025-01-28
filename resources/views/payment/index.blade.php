@@ -171,72 +171,60 @@
             border-radius: 5px;
             border: 2px solid #ff66ff;
         }
-    .modalpayment {
+/* Fondo oscuro para la modal */
+.modalpayment {
         position: fixed;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: rgba(0, 0, 0, 0.5); 
-        display: none; 
-        justify-content: center;
-        align-items: center;
-        z-index: 1000; 
-        margin: 0;
-        padding: 0;
+        background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
+        display: none; /* Inicialmente oculto */
+        justify-content: center; /* Centrado horizontal */
+        align-items: center; /* Centrado vertical */
+        z-index: 9999; /* Asegura que la modal esté sobre otros elementos */
     }
 
+    /* Estilo de la caja modal */
     .modal-contentpayment {
-        background-color: white;
-        padding: 30px;
+        background-color: #fff;
+        padding: 20px;
         border-radius: 8px;
-        width: 400px;
-        text-align: left;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        position: relative;
+        width: 100%;
+        max-width: 400px; /* Máximo tamaño para la modal */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin: 0 auto; /* Asegura que se centre en el contenedor */
     }
 
-    h4 {
+    .modal-contentpayment h4 {
         text-align: center;
-        font-size: 1.5rem;
-        margin-bottom: 20px;
-    }
-
-    .modal-content label {
-        display: block;
-        margin-bottom: 8px;
-        font-weight: bold;
-    }
-
-    .modal-content input {
-        width: 100%;
-        padding: 10px;
         margin-bottom: 15px;
-        border: 1px solid #ddd;
-        border-radius: 4px;
     }
 
-    .modal-content button {
+    .modal-contentpayment input {
         width: 100%;
+        margin-bottom: 10px;
         padding: 10px;
-        margin-top: 10px;
-        border-radius: 4px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
     }
 
-    .btn-success {
+    .modal-contentpayment button {
+        width: 48%;
+        margin: 5px 1%;
+        padding: 10px;
+        border-radius: 5px;
+        border: none;
+    }
+
+    .modal-contentpayment .btn-success {
         background-color: #28a745;
-        color: white;
-        border: none;
+        color: #fff;
     }
 
-    .btn-danger {
+    .modal-contentpayment .btn-danger {
         background-color: #dc3545;
-        color: white;
-        border: none;
-    }
-
-    .btn-success:hover, .btn-danger:hover {
-        opacity: 0.8;
+        color: #fff;
     }
     </style>
 
@@ -260,7 +248,6 @@
 
 
 
-
 <div class="card">
     <div class="card-title">Método de Pago</div>
     <button id="selectPaymentMethod" onclick="togglePaymentOptions()">Seleccionar método de pago</button>
@@ -273,6 +260,19 @@
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="paymentMethod" id="paymentCard" value="card" onclick="togglePaymentMethod()">
                 <label class="form-check-label" for="paymentCard">Pagar con tarjeta</label>
+                <div id="cardSavedMessage" style="display: none; color: green; text-align: center; padding: 10px; background-color: #d4edda; border-radius: 5px;">
+    Tarjeta Guardada Exitosamente
+</div>
+
+<!-- Contenedor para mostrar las tarjetas guardadas -->
+<div id="savedCardsContainer" style="display:none;">
+    <h4>Tarjetas Guardadas</h4>
+    <div id="savedCardsList"></div> 
+    <div id="addCardButtonContainer">
+    <button type="button" id="addCardBtn" class="btn btn-secondary mt-3" onclick="showCardForm()">Agregar Tarjeta</button>
+</div>
+</div>
+
             </div>
             
             <div class="other-method">
@@ -284,27 +284,36 @@
             </div>
         </form>
 
-        <div id="addCardButtonContainer" style="display:none;">
-            <button type="button" id="addCardBtn" class="btn btn-secondary mt-3" onclick="showCardForm()">Agregar Tarjeta</button>
-        </div>
+       
+    </div>
+</div>
+  <!-- Sección para mostrar tarjetas agregadas -->
+  <div id="savedCardsContainer" style="display:none;">
+    <h4>Tarjetas Guardadas</h4>
+    <div id="savedCardsList"></div>
+</div>
+
+
+
+                        <div class="modalpayment" id="cardModal">
+    <div class="modal-contentpayment">
+        <h4>Agregar Tarjeta</h4>
+        <form id="cardForm">
+            <label for="cardNumberModal">Número de tarjeta</label>
+            <input type="number" id="cardNumberModal" placeholder="1234 5678 9012 3456">
+            
+            <label for="cardExpiryModal">Fecha de vencimiento</label>
+            <input type="text" id="cardExpiryModal" placeholder="MM/AA">
+            
+            <label for="cardCVVModal">CVV</label>
+            <input type="number" id="cardCVVModal" placeholder="123">
+            
+            <button type="button" class="btn btn-success" onclick="saveCard()">Guardar Tarjeta</button>
+            <button type="button" class="btn btn-danger" onclick="closeModal()">Cerrar</button>
+        </form>
     </div>
 </div>
 
-                <div class="modalpayment" id="cardModal">
-                    <div class="modal-contentpayment">
-                        <h4>Agregar Tarjeta</h4>
-                        <form id="cardForm">
-                            <label for="cardNumberModal">Número de tarjeta</label>
-                            <input type="number" id="cardNumberModal" placeholder="1234 5678 9012 3456">
-                            <label for="cardExpiryModal">Fecha de vencimiento</label>
-                            <input type="text" id="cardExpiryModal" placeholder="MM/AA">
-                            <label for="cardCVVModal">CVV</label>
-                            <input type="number" id="cardCVVModal" placeholder="123">
-                            <button type="button" class="btn btn-success" onclick="saveCard()">Guardar Tarjeta</button>
-                            <button type="button" class="btn btn-danger" onclick="closeModal()">Cerrar</button>
-                        </form>
-                    </div>
-                </div>
 
                         <div class="card">
                             <div class="card-title">Revisar Artículos y Envío</div>
@@ -390,88 +399,122 @@
     </div>
 </div>
 
-
 <script>
-    function togglePaymentOptions() {
-        const paymentOptions = document.getElementById('paymentOptions');
-        paymentOptions.style.display = paymentOptions.style.display === 'none' ? 'block' : 'none';
-    }
+ 
+// Al guardar una tarjeta, debes actualizar el estado de la interfaz
+function saveCard() {
+    const cardNumber = document.getElementById('cardNumberModal').value;
+    const cardExpiry = document.getElementById('cardExpiryModal').value;
+    const cardCVV = document.getElementById('cardCVVModal').value;
 
-    function togglePaymentMethod() {
-        const paymentCash = document.getElementById('paymentCash');
-        const paymentCard = document.getElementById('paymentCard');
-        const addCardButtonContainer = document.getElementById('addCardButtonContainer');
-        const otherMethodContainer = document.getElementById('otherMethodContainer');
-        
-        if (paymentCard.checked) {
-            addCardButtonContainer.style.display = 'block'; 
-            otherMethodContainer.style.display = 'none'; 
-        } else {
-            addCardButtonContainer.style.display = 'none'; 
-            otherMethodContainer.style.display = 'block'; 
-        }
-    }
+    const cardData = { number: cardNumber, expiry: cardExpiry, cvv: cardCVV };
+
+    let savedCards = JSON.parse(localStorage.getItem('savedCards')) || [];
+    savedCards.push(cardData);
+    localStorage.setItem('savedCards', JSON.stringify(savedCards));
+
+    // Mostrar mensaje de éxito
+    const cardSavedMessage = document.getElementById('cardSavedMessage');
+    cardSavedMessage.style.display = 'block';
+
+    // Ocultar mensaje después de 4 segundos
+    setTimeout(() => {
+        cardSavedMessage.style.display = 'none';
+    }, 4000);
+
+    // Actualizar lista de tarjetas guardadas y visualizar el botón de agregar tarjeta si es necesario
+    togglePaymentMethod(); // Actualizar la visualización de las tarjetas
+    closeModal();
+}
 
     function showCardForm() {
         const modal = document.getElementById('cardModal');
         modal.style.display = 'block';
     }
 
-    function saveCard() {
-        const cardNumber = document.getElementById('cardNumberModal').value;
-        const cardExpiry = document.getElementById('cardExpiryModal').value;
-        const cardCVV = document.getElementById('cardCVVModal').value;
-
-        localStorage.setItem('cardNumber', cardNumber);
-        localStorage.setItem('cardExpiry', cardExpiry);
-        localStorage.setItem('cardCVV', cardCVV);
-
-        const paymentMethodListContainer = document.getElementById('paymentMethodListContainer');
-        paymentMethodListContainer.innerHTML = `
-            <div><strong>Tarjeta Guardada:</strong> ${cardNumber} (expira: ${cardExpiry})</div>
-        `;
-
-        closeModal();
-    }
-
     function closeModal() {
         const modal = document.getElementById('cardModal');
         modal.style.display = 'none';
     }
-      function togglePaymentOptions() {
-    const paymentOptions = document.getElementById('paymentOptions');
-    const selectPaymentButton = document.getElementById('selectPaymentMethod');
-    
-    paymentOptions.style.display = 'block';
-    
-    selectPaymentButton.style.display = 'none';
-    
-    document.querySelectorAll('input[name="paymentMethod"]').forEach(input => {
-        input.addEventListener('change', function () {
-            paymentOptions.style.display = 'block'; 
-            selectPaymentButton.style.display = 'none'; 
-        });
-    });
+    function togglePaymentOptions() {
+        const paymentOptions = document.getElementById('paymentOptions');
+        paymentOptions.style.display = (paymentOptions.style.display === 'none') ? 'block' : 'none';
+    }
+
+
+    function togglePaymentMethod() {
+    const paymentMethod = document.querySelector('input[name="paymentMethod"]:checked').value;
+    const savedCardsContainer = document.getElementById('savedCardsContainer');
+    const addCardButtonContainer = document.getElementById('addCardButtonContainer');
+
+    // Guardar el método de pago en localStorage
+    localStorage.setItem('selectedPaymentMethod', paymentMethod);
+
+    if (paymentMethod === 'card') {
+        // Mostrar tarjetas guardadas si hay
+        const savedCards = JSON.parse(localStorage.getItem('savedCards')) || [];
+
+        if (savedCards.length > 0) {
+            savedCardsContainer.style.display = 'block'; // Mostrar tarjetas guardadas
+            displaySavedCards(savedCards);
+        } else {
+            savedCardsContainer.style.display = 'none'; // No mostrar tarjetas guardadas
+        }
+    } else if (paymentMethod === 'cash') {
+        // Ocultar tarjetas guardadas cuando se selecciona pagar en efectivo
+        savedCardsContainer.style.display = 'none';
+    }
 }
-document.addEventListener('DOMContentLoaded', function () {
-    const paymentCard = document.getElementById('paymentCard');
-    const paymentCash = document.getElementById('paymentCash');
-    const cardInfo = document.getElementById('cardInfo');
 
-    // Escuchar cambios en los métodos de pago
-    paymentCard.addEventListener('change', function () {
-        if (this.checked) {
-            cardInfo.style.display = 'block';
+
+
+    function displaySavedCards(cards) {
+        const savedCardsList = document.getElementById('savedCardsList');
+        savedCardsList.innerHTML = cards.map((card, index) => {
+            return `
+                <div>
+                    <input type="radio" name="savedCard" id="card-${index}" value="${index}" onclick="selectCard(${index})">
+                    <label for="card-${index}">Tarjeta: ${card.number} (expira: ${card.expiry})</label>
+                </div>
+            `;
+        }).join('');
+    }
+
+    // Cuando una tarjeta es seleccionada, guardar su índice en el localStorage
+    function selectCard(index) {
+        const savedCards = JSON.parse(localStorage.getItem('savedCards')) || [];
+        const selectedCard = savedCards[index];
+
+        // Guardar el índice de la tarjeta seleccionada
+        localStorage.setItem('selectedCardIndex', index);
+
+        // También puedes mostrar un mensaje de confirmación o almacenar la tarjeta seleccionada
+        alert(`Seleccionaste la tarjeta terminada en ${selectedCard.number.slice(-4)}`);
+    }
+
+    // Al cargar la página, marcar la última tarjeta seleccionada
+    document.addEventListener('DOMContentLoaded', function () {
+        const selectedPaymentMethod = localStorage.getItem('selectedPaymentMethod');
+    if (selectedPaymentMethod) {
+        const paymentRadioButton = document.querySelector(`input[name="paymentMethod"][value="${selectedPaymentMethod}"]`);
+        if (paymentRadioButton) {
+            paymentRadioButton.checked = true;
+            togglePaymentMethod(); // Actualiza la vista de acuerdo al método seleccionado
         }
-    });
+    }
 
-    paymentCash.addEventListener('change', function () {
-        if (this.checked) {
-            cardInfo.style.display = 'none';
+    // Resto de las inicializaciones
+    const selectedCardIndex = localStorage.getItem('selectedCardIndex');
+    if (selectedCardIndex !== null) {
+        const savedCards = JSON.parse(localStorage.getItem('savedCards')) || [];
+        const selectedCard = savedCards[selectedCardIndex];
+        const radioButton = document.getElementById(`card-${selectedCardIndex}`);
+        if (radioButton) {
+            radioButton.checked = true;
         }
+    }
+        
     });
-});
-
     document.getElementById('saveAddressBtn').addEventListener('click', function () {
         const fullName = document.getElementById('fullName').value;
         const street = document.getElementById('street').value;
@@ -494,8 +537,7 @@ document.addEventListener('DOMContentLoaded', function () {
             instructions,
             defaultAddress
         };
-// Cerrar la modal después de guardar
-var myModal = bootstrap.Modal.getInstance(document.getElementById('addAddressModal'));
+    var myModal = bootstrap.Modal.getInstance(document.getElementById('addAddressModal'));
             myModal.hide();
        
         saveAddressToLocalStorage(newAddress);

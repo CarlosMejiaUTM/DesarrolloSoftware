@@ -182,8 +182,8 @@
                     <h3>Resumen</h3>
                     <p>Subtotal (<span id="total-items-summary">{{ $totalItems }}</span> productos): $<span id="summary-subtotal">{{ $subtotal }}</span></p>
 
-                    <div class="shipping-info">                    <button onclick="window.location.href='/payment'">Proceder al Pago</button>
-
+                    <div class="shipping-info">                   
+                         <button onclick="window.location.href='/payment'">Proceder al Pago</button><br><br>
                         <div class="shipping-bar-container">
                             <div class="shipping-bar"></div>
                             <p class="shipping-amount">$299</p>
