@@ -32,6 +32,10 @@
             border: 2px solid #ff66ff;
             box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
             transition: transform 0.3s;
+            height: 400px; /* Set a fixed height */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .product-card:hover {
@@ -65,9 +69,9 @@
             <h1 class="text-center text-glow">Catálogo de Productos</h1>
             <div class="row">
                 @foreach ($products as $product)
-                <div class="col-md-3">
+                <div class="col-12 col-sm-6 col-lg-3 mb-4">
                     <div class="card product-card">
-                        <img src="{{ $product['image'] }}" class="card-img-top" alt="{{ $product['name'] }}">
+                        <img src="{{ $product['image'] }}" class="card-img-top" alt="{{ $product['name'] }}" style="width: 100%; height: 200px; object-fit: cover;">
                         <div class="card-body text-center">
                             <h5 class="card-title">{{ $product['name'] }}</h5>
                             <p class="price-text">${{ $product['price'] }}</p>
@@ -79,9 +83,6 @@
             </div>
         </div>
     </main>
-
-    
-
     <footer id="footer-content">
         <footer-content></footer-content>
     </footer>
