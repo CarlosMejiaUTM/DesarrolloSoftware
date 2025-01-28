@@ -315,9 +315,46 @@
 </div>
 
 
-                        <div class="card">
-                            <div class="card-title">Revisar Artículos y Envío</div>
+<div class="card">
+    <div class="card-title">Revisar Artículos y Envío</div>
+    <div class="cart-products">
+        @if (!empty($cartItems) && count($cartItems) > 0)
+            <ul>
+                @foreach ($cartItems as $item)
+                    <li style="display: flex; align-items: center; margin-bottom: 15px;">
+                        <!-- Imagen pequeña a la izquierda -->
+                        <img src="{{ $item['image'] }}" alt="{{ $item['name'] }}" style="width: 50px; height: 50px; object-fit: cover; margin-right: 15px;">
+
+                        <!-- Descripción a la derecha -->
+                        <div style="flex: 1;">
+                            <div>{{ $item['name'] }}</div>
+                            <div>Precio: ${{ number_format($item['price'], 2) }}</div>
+                            <div>Cantidad: {{ $item['quantity'] }}</div>
+                            <div>Total: ${{ number_format($item['price'] * $item['quantity'], 2) }}</div>
                         </div>
+                    </li>
+                @endforeach
+            </ul>
+            <div class="separator"></div>
+            <div class="product-summary">
+                <!-- Subtotal -->
+                <div>Subtotal: 
+                    <span>
+                        ${{ number_format(array_sum(array_map(fn($item) => $item['price'] * $item['quantity'], $cartItems)), 2) }}
+                    </span>
+                </div>
+
+                <!-- Total (con shipping) -->
+               
+            </div>
+        @else
+            <p>No hay productos en el carrito.</p>
+        @endif
+    </div>
+</div>
+
+
+
                     </div>
                 </div>
 
@@ -328,9 +365,8 @@
 
                         <!-- Resumen de productos -->
                         <div class="product-summary">
-                            <div>Productos: <span>$200</span></div>
-                            <div>Subtotal: <span>$200</span></div>
-                            <div>Total: <span>$220</span></div>
+                        <div>Cantidad: <span id="total-items">{{ $totalItems }}</span></div>
+                        <div>Total: <span id="cart-subtotal">{{ $subtotal }}</span></div>
                         </div>
                     </div>
                 </div>

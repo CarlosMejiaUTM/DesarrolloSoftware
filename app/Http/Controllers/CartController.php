@@ -117,4 +117,5 @@ public function removeItem(Request $request, $id)
         }
         return $subtotal;
     }
+    
 }

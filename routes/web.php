@@ -5,6 +5,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CartController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AddressController;
+use App\Http\Controllers\PaymentController;
 
 Route::get('/', function () { return view('welcome'); });
 
@@ -17,10 +18,7 @@ Route::post('/cart/update/{id}', [CartController::class, 'updateQuantity'])->nam
 Route::post('/cart/remove/{id}', [CartController::class, 'removeItem']);
 Route::get('/cart', [CartController::class, 'index'])->name('cart.index');  
 Route::post('/cart/add/{id}', [CartController::class, 'add'])->name('cart.add');
-Route::get('/payment', function () {
-    return view('payment.index');
-});
-
+Route::get('/payment', [PaymentController::class, 'index'])->name('payment.index');
 
 
 Route::post('/address/store', [AddressController::class, 'store']);
