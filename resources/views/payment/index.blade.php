@@ -264,7 +264,6 @@
     Tarjeta Guardada Exitosamente
 </div>
 
-<!-- Contenedor para mostrar las tarjetas guardadas -->
 <div id="savedCardsContainer" style="display:none;">
     <h4>Tarjetas Guardadas</h4>
     <div id="savedCardsList"></div> 
@@ -287,7 +286,6 @@
        
     </div>
 </div>
-  <!-- Sección para mostrar tarjetas agregadas -->
   <div id="savedCardsContainer" style="display:none;">
     <h4>Tarjetas Guardadas</h4>
     <div id="savedCardsList"></div>
@@ -295,7 +293,7 @@
 
 
 
-                        <div class="modalpayment" id="cardModal">
+    <div class="modalpayment" id="cardModal">
     <div class="modal-contentpayment">
         <h4>Agregar Tarjeta</h4>
         <form id="cardForm">
@@ -322,10 +320,8 @@
             <ul>
                 @foreach ($cartItems as $item)
                     <li style="display: flex; align-items: center; margin-bottom: 15px;">
-                        <!-- Imagen pequeña a la izquierda -->
                         <img src="{{ $item['image'] }}" alt="{{ $item['name'] }}" style="width: 50px; height: 50px; object-fit: cover; margin-right: 15px;">
 
-                        <!-- Descripción a la derecha -->
                         <div style="flex: 1;">
                             <div>{{ $item['name'] }}</div>
                             <div>Precio: ${{ number_format($item['price'], 2) }}</div>
@@ -337,14 +333,12 @@
             </ul>
             <div class="separator"></div>
             <div class="product-summary">
-                <!-- Subtotal -->
                 <div>Subtotal: 
                     <span>
                         ${{ number_format(array_sum(array_map(fn($item) => $item['price'] * $item['quantity'], $cartItems)), 2) }}
                     </span>
                 </div>
 
-                <!-- Total (con shipping) -->
                
             </div>
         @else
@@ -352,9 +346,6 @@
         @endif
     </div>
 </div>
-
-
-
                     </div>
                 </div>
 
@@ -363,7 +354,6 @@
                         <button>Enviar a esta dirección</button>
                         <div class="separator"></div>
 
-                        <!-- Resumen de productos -->
                         <div class="product-summary">
                         <div>Cantidad: <span id="total-items">{{ $totalItems }}</span></div>
                         <div>Total: <span id="cart-subtotal">{{ $subtotal }}</span></div>
@@ -374,7 +364,6 @@
         </div>
     </main>
 
-<!-- Modal de Agregar Dirección de Entrega -->
 <div class="modal fade" id="addAddressModal" tabindex="-1" aria-labelledby="addAddressModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -437,7 +426,6 @@
 
 <script>
  
-// Al guardar una tarjeta, debes actualizar el estado de la interfaz
 function saveCard() {
     const cardNumber = document.getElementById('cardNumberModal').value;
     const cardExpiry = document.getElementById('cardExpiryModal').value;
@@ -449,17 +437,14 @@ function saveCard() {
     savedCards.push(cardData);
     localStorage.setItem('savedCards', JSON.stringify(savedCards));
 
-    // Mostrar mensaje de éxito
     const cardSavedMessage = document.getElementById('cardSavedMessage');
     cardSavedMessage.style.display = 'block';
 
-    // Ocultar mensaje después de 4 segundos
     setTimeout(() => {
         cardSavedMessage.style.display = 'none';
     }, 4000);
 
-    // Actualizar lista de tarjetas guardadas y visualizar el botón de agregar tarjeta si es necesario
-    togglePaymentMethod(); // Actualizar la visualización de las tarjetas
+    togglePaymentMethod(); 
     closeModal();
 }
 
@@ -483,21 +468,18 @@ function saveCard() {
     const savedCardsContainer = document.getElementById('savedCardsContainer');
     const addCardButtonContainer = document.getElementById('addCardButtonContainer');
 
-    // Guardar el método de pago en localStorage
     localStorage.setItem('selectedPaymentMethod', paymentMethod);
 
     if (paymentMethod === 'card') {
-        // Mostrar tarjetas guardadas si hay
         const savedCards = JSON.parse(localStorage.getItem('savedCards')) || [];
 
         if (savedCards.length > 0) {
-            savedCardsContainer.style.display = 'block'; // Mostrar tarjetas guardadas
+            savedCardsContainer.style.display = 'block'; 
             displaySavedCards(savedCards);
         } else {
-            savedCardsContainer.style.display = 'none'; // No mostrar tarjetas guardadas
+            savedCardsContainer.style.display = 'none'; 
         }
     } else if (paymentMethod === 'cash') {
-        // Ocultar tarjetas guardadas cuando se selecciona pagar en efectivo
         savedCardsContainer.style.display = 'none';
     }
 }
@@ -516,30 +498,25 @@ function saveCard() {
         }).join('');
     }
 
-    // Cuando una tarjeta es seleccionada, guardar su índice en el localStorage
     function selectCard(index) {
         const savedCards = JSON.parse(localStorage.getItem('savedCards')) || [];
         const selectedCard = savedCards[index];
 
-        // Guardar el índice de la tarjeta seleccionada
         localStorage.setItem('selectedCardIndex', index);
 
-        // También puedes mostrar un mensaje de confirmación o almacenar la tarjeta seleccionada
         alert(`Seleccionaste la tarjeta terminada en ${selectedCard.number.slice(-4)}`);
     }
 
-    // Al cargar la página, marcar la última tarjeta seleccionada
     document.addEventListener('DOMContentLoaded', function () {
         const selectedPaymentMethod = localStorage.getItem('selectedPaymentMethod');
     if (selectedPaymentMethod) {
         const paymentRadioButton = document.querySelector(`input[name="paymentMethod"][value="${selectedPaymentMethod}"]`);
         if (paymentRadioButton) {
             paymentRadioButton.checked = true;
-            togglePaymentMethod(); // Actualiza la vista de acuerdo al método seleccionado
+            togglePaymentMethod(); 
         }
     }
 
-    // Resto de las inicializaciones
     const selectedCardIndex = localStorage.getItem('selectedCardIndex');
     if (selectedCardIndex !== null) {
         const savedCards = JSON.parse(localStorage.getItem('savedCards')) || [];
