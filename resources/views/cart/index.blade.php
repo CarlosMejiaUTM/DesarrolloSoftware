@@ -151,13 +151,14 @@
                     @if(count($cartItems) > 0)
                     @foreach($cartItems as $id => $item)
                     <div id="cart-item-{{ $id }}" class="cart-item">
+                        
                         <img src="{{ $item['image'] }}" alt="{{ $item['name'] }}">
                         <div class="item-details">
                             <h5>{{ $item['name'] }}</h5>
                             <p class="price">${{ $item['price'] }}</p>
                             <div class="item-actions">
-                                <span id="save-item-{{ $id }}" class="save-for-later" onclick="toggleSave({{ $id }})">Guardar para más tarde</span>
-                                <span id="delete-item-{{ $id }}" class="delete-item" onclick="removeItem({{ $id }})">Eliminar</span>
+                                <button id="save-item-{{ $id }}" class="save-for-later" onclick="toggleSave({{ $id }})">Guardar para más tarde</button>
+                                <button id="delete-item-{{ $id }}" class="delete-item" onclick="removeItem({{ $id }})">Eliminar</button>
                             </div>
                         </div>
                         <div class="item-actions">

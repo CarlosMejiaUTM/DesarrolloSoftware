@@ -315,7 +315,13 @@
 
 
 <div class="card">
-    <div class="card-title">Revisar Artículos y Envío</div>
+<button onclick="window.location.href='/cart'">Volver al Carrito</button>
+</div>
+                    </div>
+                </div>
+
+                <div class="right-panel">
+                    <div class="card-title">Revisar Artículos y Envío</div>
     <div class="cart-products">
         @if (!empty($cartItems) && count($cartItems) > 0)
             <ul>
@@ -345,14 +351,9 @@
         @else
             <p>No hay productos en el carrito.</p>
         @endif
-    </div>
-</div>
-                    </div>
-                </div>
-
-                <div class="right-panel">
+    </div><br><br>
                     <div class="card">
-                        <button>Enviar a esta dirección</button>
+                        <button>Comprar</button>
                         <div class="separator"></div>
 
                         <div class="product-summary">
