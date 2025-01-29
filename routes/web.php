@@ -8,9 +8,7 @@ use App\Http\Controllers\AddressController;
 use App\Http\Controllers\PaymentController;
 
 // Ruta principal redirige a products.index
-Route::get('/', function () {
-    return redirect()->route('products.index');
-});
+Route::get('/', function () { return view('welcome'); });
 
 // Vistas de productos
 Route::get('/products/search', [ProductController::class, 'search'])->name('products.index');
