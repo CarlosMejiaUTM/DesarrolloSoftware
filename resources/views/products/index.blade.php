@@ -66,6 +66,11 @@
         <div class="container py-5">
             <h1 class="text-center text-glow">Catálogo de Productos</h1>
             <div class="row">
+                @if (empty($products))
+                <div class="col-12">
+                    <p class="text-center">No hay productos en esta categoría, intenta en otra.</p>
+                </div>
+                @else
                 @foreach ($products as $product)
                 <div class="col-12 col-sm-6 col-lg-3 mb-4">
                     <div class="card product-card">
@@ -78,6 +83,7 @@
                     </div>
                 </div>
                 @endforeach
+                @endif
             </div>
         </div>
     </main>

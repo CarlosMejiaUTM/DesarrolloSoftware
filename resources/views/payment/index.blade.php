@@ -352,15 +352,20 @@
             <p>No hay productos en el carrito.</p>
         @endif
     </div><br><br>
-                    <div class="card">
-                        <button>Comprar</button>
-                        <div class="separator"></div>
+                    <<div class="card">
+    <form action="{{ route('payment.comprar') }}" method="POST">
+        @csrf
+        <button type="submit" class="btn btn-success">Comprar</button>
+    </form>
 
-                        <div class="product-summary">
-                        <div>Cantidad: <span id="total-items">{{ $totalItems }}</span></div>
-                        <div>Total: <span id="cart-subtotal">{{ $subtotal }}</span></div>
-                        </div>
-                    </div>
+    <div class="separator"></div>
+
+    <div class="product-summary">
+        <div>Cantidad: <span id="total-items">{{ $totalItems }}</span></div>
+        <div>Total: <span id="cart-subtotal">{{ $subtotal }}</span></div>
+    </div>
+</div>
+
                 </div>
             </div>
         </div>
