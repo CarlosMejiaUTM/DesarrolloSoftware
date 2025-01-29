@@ -189,11 +189,14 @@
                 </div>
             </div>
         </div>
-    </main>
-
+        
     <footer id="footer-content">
         <footer-content></footer-content>
     </footer>
+
+    </main>
+
+
 
     @vite('resources/js/app.js')
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
