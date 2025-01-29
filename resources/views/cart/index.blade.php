@@ -189,12 +189,12 @@
                 </div>
             </div>
         </div>
+    </main>
         
     <footer id="footer-content">
         <footer-content></footer-content>
     </footer>
 
-    </main>
 
 
 
