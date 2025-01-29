@@ -65,6 +65,8 @@ export default {
 <style scoped>
 .navbar {
   font-family: var(--comic-font);
+  font-weight: 700;
+  font-size: 1.2rem;
 }
 
 .nav-link {
